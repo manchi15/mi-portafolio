@@ -1,0 +1,111 @@
+/* ======== FONDO NEGRO ELEGANTE ======== */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    color: #ffffff;
+    background: #000000;
+    overflow-x: hidden;
+}
+
+/* ===== HEADER ===== */
+header {
+    text-align: center;
+    padding: 120px 20px;
+    background: linear-gradient(
+        to bottom,
+        #000000 0%,
+        #110022 60%,
+        #000000 100%
+    );
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+header h1 {
+    font-size: 55px;
+    margin: 0;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 0 0 18px #a040ff;
+}
+
+header p {
+    margin-top: 10px;
+    font-size: 18px;
+    opacity: 0.85;
+    text-shadow: 0 0 10px #a040ff;
+}
+
+/* ==== TARJETAS CON EFECTO GAMER ==== */
+section {
+    background: rgba(20, 0, 40, 0.35);
+    border: 2px solid rgba(160, 80, 255, 0.18);
+    border-radius: 18px;
+    padding: 30px;
+    margin: 25px;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 0 20px rgba(160, 80, 255, 0.15);
+    transition: 0.35s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* BRILLO GAMER AL PASAR EL MOUSE */
+section:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 35px rgba(180, 90, 255, 0.55);
+    border-color: rgba(200, 120, 255, 0.7);
+}
+
+/* BORDE NEÓN ANIMADO */
+section::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    padding: 2px;
+    background: linear-gradient(120deg, transparent, #a040ff, transparent);
+    opacity: 0;
+    transition: 0.4s;
+}
+
+section:hover::after {
+    opacity: 1;
+    filter: blur(8px);
+}
+
+/* Títulos */
+h2 {
+    margin-top: 0;
+    font-size: 26px;
+    color: #ffffff;
+    text-shadow: 0 0 10px #a040ff;
+}
+
+/* ===== BOTONES ===== */
+button.red {
+    padding: 12px 25px;
+    background: #a040ff;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 12px;
+    transition: 0.25s;
+    text-decoration: none;
+}
+
+/* Efecto neon en botones */
+button.red:hover {
+    background: #c07aff;
+    box-shadow: 0 0 25px #c07aff;
+    transform: scale(1.12);
+}
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    padding: 25px;
+    opacity: 0.5;
+    font-size: 14px;
+}
