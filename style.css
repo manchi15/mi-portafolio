@@ -1,111 +1,80 @@
-/* ======== FONDO NEGRO ELEGANTE ======== */
+/* ✅ FONDO NEGRO CON ESTRELLAS (GENERADAS CON CSS, NO IMAGEN) */
 body {
     margin: 0;
-    font-family: 'Arial', sans-serif;
-    color: #ffffff;
-    background: #000000;
+    font-family: Arial, sans-serif;
+    background: black;
+    color: white;
     overflow-x: hidden;
 }
 
-/* ===== HEADER ===== */
+/* ✅ Capa de estrellas pequeñas */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent url("https://www.transparenttextures.com/patterns/stardust.png") repeat;
+    opacity: 0.25;
+    z-index: -1;
+}
+
+/* ✅ HEADER CON GLOW */
 header {
     text-align: center;
-    padding: 120px 20px;
-    background: linear-gradient(
-        to bottom,
-        #000000 0%,
-        #110022 60%,
-        #000000 100%
-    );
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 60px 20px;
+    background: radial-gradient(circle, rgba(255,255,255,0.25) 0%, rgba(0,0,0,0) 70%);
 }
 
 header h1 {
-    font-size: 55px;
-    margin: 0;
-    font-weight: bold;
-    color: #ffffff;
-    text-shadow: 0 0 18px #a040ff;
+    font-size: 3rem;
+    text-shadow: 0 0 20px white;
 }
 
 header p {
-    margin-top: 10px;
-    font-size: 18px;
-    opacity: 0.85;
-    text-shadow: 0 0 10px #a040ff;
+    color: #ccc;
+    font-size: 1.1rem;
 }
 
-/* ==== TARJETAS CON EFECTO GAMER ==== */
-section {
-    background: rgba(20, 0, 40, 0.35);
-    border: 2px solid rgba(160, 80, 255, 0.18);
-    border-radius: 18px;
-    padding: 30px;
-    margin: 25px;
-    backdrop-filter: blur(6px);
-    box-shadow: 0 0 20px rgba(160, 80, 255, 0.15);
-    transition: 0.35s ease;
-    position: relative;
-    overflow: hidden;
+/* ✅ TARJETAS */
+.tarjeta {
+    background: rgba(20, 0, 40, 0.55);
+    border: 2px solid #b041ff;
+    margin: 30px auto;
+    padding: 25px;
+    width: 85%;
+    border-radius: 15px;
+    box-shadow: 0 0 25px #b041ff;
+    backdrop-filter: blur(5px);
+    transition: 0.3s;
 }
 
-/* BRILLO GAMER AL PASAR EL MOUSE */
-section:hover {
+/* ✅ ANIMACIÓN HOVER */
+.tarjeta:hover {
     transform: scale(1.03);
-    box-shadow: 0 0 35px rgba(180, 90, 255, 0.55);
-    border-color: rgba(200, 120, 255, 0.7);
+    box-shadow: 0 0 40px #d46cff;
 }
 
-/* BORDE NEÓN ANIMADO */
-section::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 18px;
-    padding: 2px;
-    background: linear-gradient(120deg, transparent, #a040ff, transparent);
-    opacity: 0;
-    transition: 0.4s;
-}
-
-section:hover::after {
-    opacity: 1;
-    filter: blur(8px);
-}
-
-/* Títulos */
 h2 {
-    margin-top: 0;
-    font-size: 26px;
-    color: #ffffff;
-    text-shadow: 0 0 10px #a040ff;
+    color: #e09bff;
+    text-shadow: 0 0 15px #e09bff;
 }
 
-/* ===== BOTONES ===== */
-button.red {
+/* ✅ BOTONES */
+.btn-red {
+    display: inline-block;
+    background: #a259ff;
     padding: 12px 25px;
-    background: #a040ff;
+    border-radius: 10px;
     color: white;
     font-weight: bold;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    margin-top: 12px;
-    transition: 0.25s;
     text-decoration: none;
+    box-shadow: 0 0 15px #a259ff;
+    transition: 0.3s;
 }
 
-/* Efecto neon en botones */
-button.red:hover {
-    background: #c07aff;
-    box-shadow: 0 0 25px #c07aff;
-    transform: scale(1.12);
-}
-
-/* ===== FOOTER ===== */
-footer {
-    text-align: center;
-    padding: 25px;
-    opacity: 0.5;
-    font-size: 14px;
+.btn-red:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 35px #c47aff;
 }
