@@ -1,0 +1,80 @@
+/* ✅ FONDO NEGRO CON ESTRELLAS (GENERADAS CON CSS, NO IMAGEN) */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: black;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* ✅ Capa de estrellas pequeñas */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent url("https://www.transparenttextures.com/patterns/stardust.png") repeat;
+    opacity: 0.25;
+    z-index: -1;
+}
+
+/* ✅ HEADER CON GLOW */
+header {
+    text-align: center;
+    padding: 60px 20px;
+    background: radial-gradient(circle, rgba(255,255,255,0.25) 0%, rgba(0,0,0,0) 70%);
+}
+
+header h1 {
+    font-size: 3rem;
+    text-shadow: 0 0 20px white;
+}
+
+header p {
+    color: #ccc;
+    font-size: 1.1rem;
+}
+
+/* ✅ TARJETAS */
+.tarjeta {
+    background: rgba(20, 0, 40, 0.55);
+    border: 2px solid #b041ff;
+    margin: 30px auto;
+    padding: 25px;
+    width: 85%;
+    border-radius: 15px;
+    box-shadow: 0 0 25px #b041ff;
+    backdrop-filter: blur(5px);
+    transition: 0.3s;
+}
+
+/* ✅ ANIMACIÓN HOVER */
+.tarjeta:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 40px #d46cff;
+}
+
+h2 {
+    color: #e09bff;
+    text-shadow: 0 0 15px #e09bff;
+}
+
+/* ✅ BOTONES */
+.btn-red {
+    display: inline-block;
+    background: #a259ff;
+    padding: 12px 25px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 0 15px #a259ff;
+    transition: 0.3s;
+}
+
+.btn-red:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 35px #c47aff;
+}
