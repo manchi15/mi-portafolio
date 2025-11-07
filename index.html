@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nicolás | </title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Cursor 3D plateado -->
+  <div id="cursor"></div>
+
+  <!-- INTRO CINEMÁTICA (9) -->
+  <div id="intro">
+    <div class="intro-scan"></div>
+    <div class="intro-flare"></div>
+    <h1 class="intro-title">NICOLÁS</h1>
+    <p class="intro-sub">WELCOME NICOLAS</p>
+  </div>
+
+  <!-- CAPAS DE FONDO -->
+  <div class="space-stars"></div>
+  <div class="space-nebula"></div>
+
+  <!-- PLANETA PLATEADO (8) -->
+  <div class="planet-wrap">
+    <div class="planet">
+      <div class="planet-gloss"></div>
+      <div class="planet-ring"></div>
+    </div>
+  </div>
+
+  <header class="wrap">
+    <h1 class="chrome">Portafolio de Nicolás</h1>
+    <p>Youtuber • Streamer </p>
+  </header>
+
+  <main class="wrap grid">
+    <!-- Tarjetas PS5 + Tron Lines (5 + 6) -->
+    <section class="scene">
+      <article class="card">
+        <h2>Datos personales</h2>
+        <ul>
+          <li><strong>Nacimiento:</strong> 27 de septiembre de 2010</li>
+          <li><strong>Ciudad:</strong> Bogotá, Colombia</li>
+          <li><strong>Grado:</strong> Noveno</li>
+          <li><strong>Edad:</strong> 15 años</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="scene">
+      <article class="card">
+        <h2>Sobre mí</h2>
+        <p>
+          Soy <strong>Nicolás</strong>, youtuber y streamer.  
+          Camino a ser el <strong>emperador de las redes</strong> ⚪🌌.
+        </p>
+      </article>
+    </section>
+
+    <section class="scene">
+      <article class="card">
+        <h2>Habilidades</h2>
+        <ul>
+          <li>Edición de videos profesional</li>
+          <li>Baloncesto</li>
+          <li>Taekwondo</li>
+          <li>Fotografía</li>
+          <li>Experto en PC</li>
+          <li>Experto en videojuegos</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="scene">
+      <article class="card">
+        <h2>Comidas favoritas</h2>
+        <ul>
+          <li>Bandeja paisa</li>
+          <li>Sushi</li>
+          <li>Hamburguesa</li>
+          <li>Ramen</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="scene">
+      <article class="card">
+        <h2>Hobbies</h2>
+        <ul>
+          <li>Estar con amigos</li>
+          <li>Videojuegos</li>
+          <li>Investigar cosas nuevas</li>
+          <li>Hacer deporte</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="scene">
+      <article class="card">
+        <h2>Colores favoritos</h2>
+        <ul>
+          <li>Negro</li>
+          <li>Blanco</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="scene wide">
+      <article class="card">
+        <h2>Redes</h2>
+        <p><strong>YouTube:</strong> AdivinaKing</p>
+        <a class="btn" target="_blank" href="https://www.youtube.com/@AdivinaKing">Visitar YouTube</a>
+        <span class="spacer"></span>
+        <p><strong>Kick:</strong> Elmanxy</p>
+        <a class="btn" target="_blank" href="https://kick.com/elmanxy">Visitar Kick</a>
+      </article>
+    </section>
+  </main>
+
+  <!-- Scripts: Intro (9) + Cursor + 3D + Cometas (3) -->
+  <script>
+    // Intro: salida cinematográfica y estrella fugaz (3)
+    window.addEventListener('load', () => {
+      const intro = document.getElementById('intro');
+      setTimeout(()=> intro.classList.add('out'), 1800);
+      setTimeout(()=> intro.remove(), 3400);
+      setTimeout(()=> lanzarEstrella(), 1600);
+    });
+
+    // Cursor plateado
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top  = e.clientY + 'px';
+    });
+
+    // Tarjetas 3D + glare
+    document.querySelectorAll('.scene').forEach(scene => {
+      const card = scene.querySelector('.card');
+      scene.addEventListener('mousemove', e => {
+        const r = scene.getBoundingClientRect();
+        const x = e.clientX - r.left;
+        const y = e.clientY - r.top;
+        const rotX = -((y - r.height/2) / (r.height/2)) * 7;
+        const rotY =  ((x - r.width/2)  / (r.width/2))  * 12;
+        card.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg) translateZ(22px)`;
+        card.style.setProperty('--gx', x + 'px');
+        card.style.setProperty('--gy', y + 'px');
+      });
+      scene.addEventListener('mouseleave', () => {
+        card.style.transform = 'rotateX(0) rotateY(0)';
+        card.style.setProperty('--gx', '50%');
+        card.style.setProperty('--gy', '0%');
+      });
+    });
+
+    // ⭐ Estrella fugaz (3)
+    function lanzarEstrella(){
+      const e = document.createElement('div');
+      e.className = 'estrella-fugaz';
+      document.body.appendChild(e);
+      setTimeout(()=> e.remove(), 1800);
+    }
+
+    // ☄️ Lluvia de cometas plateados (3)
+    setInterval(() => {
+      const c = document.createElement('div');
+      c.className = 'cometa';
+      const startY = Math.random() * (window.innerHeight * 0.4);
+      c.style.top = startY + 'px';
+      c.style.left = '-200px';
+      c.style.transform = 'rotate(12deg)';
+      c.style.animationDuration = (2.2 + Math.random()*1.8) + 's';
+      document.body.appendChild(c);
+      setTimeout(()=> c.remove(), 5000);
+    }, 900);
+  </script>
+</body>
+</html>
