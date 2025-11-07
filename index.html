@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nicolás | </title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- CURSOR PLATEADO -->
+  <div id="cursor"></div>
+
+  <!-- INTRO EPICA -->
+  <div id="intro">
+      <div class="intro-glow"></div>
+      <h1>WELCOME NICOLAS</h1>
+  </div>
+
+  <!-- CAPAS DE FONDO -->
+  <div class="space-stars"></div>
+  <div class="space-nebula"></div>
+
+  <header class="wrap">
+    <h1 class="chrome">Nicolás – Portafolio</h1>
+    <p>FUNDACION UNICO  ⚪🌌🔥</p>
+  </header>
+
+  <main class="wrap">
+
+    <section class="scene">
+      <article class="card">
+        <h2>Datos personales</h2>
+        <ul>
+          <li><strong>Nacimiento:</strong> 27 de septiembre de 2010</li>
+          <li><strong>Ciudad:</strong> Bogotá, Colombia</li>
+          <li><strong>Grado:</strong> Noveno</li>
+          <li><strong>Edad:</strong> 15 años</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="scene">
+      <article class="card">
+        <h2>Sobre mí</h2>
+        <p>
+          Hola, soy <strong>Nicolás</strong>, youtuber, streamer y futuro emperador de las redes.  
+           ⚪🔥🌌
+        </p>
+      </article>
+    </section>
+
+    <section class="scene">
+      <article class="card">
+        <h2>Habilidades</h2>
+        <ul>
+          <li>Edición de videos profesional</li>
+          <li>Baloncesto</li>
+          <li>Taekwondo</li>
+          <li>Fotografía</li>
+          <li>Experto en PC</li>
+          <li>Experto en videojuegos</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="scene">
+      <article class="card">
+        <h2>Comidas favoritas</h2>
+        <ul>
+          <li>Bandeja paisa</li>
+          <li>Sushi</li>
+          <li>Hamburguesa</li>
+          <li>Ramen</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="scene">
+      <article class="card">
+        <h2>Hobbies</h2>
+        <ul>
+          <li>Estar con amigos</li>
+          <li>Videojuegos</li>
+          <li>Investigar cosas nuevas</li>
+          <li>Hacer deporte</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="scene">
+      <article class="card">
+        <h2>Colores favoritos</h2>
+        <ul>
+          <li>Negro</li>
+          <li>Blanco</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="scene">
+      <article class="card">
+        <h2>Redes sociales</h2>
+
+        <p><strong>YouTube:</strong> AdivinaKing</p>
+        <a class="btn" target="_blank" href="https://www.youtube.com/@AdivinaKing">Visitar YouTube</a>
+
+        <br><br>
+
+        <p><strong>Kick:</strong> Elmanxy</p>
+        <a class="btn" target="_blank" href="https://kick.com/elmanxy">Visitar Kick</a>
+
+      </article>
+    </section>
+
+  </main>
+
+  <!-- SCRIPTS: INTRO + CURSOR + 3D + ESTRELLA + PARTICULAS -->
+<script>
+  // INTRO ANIMACIÓN
+  window.addEventListener("load", () => {
+    const intro = document.getElementById("intro");
+    setTimeout(() => intro.classList.add("out"), 1500);
+    setTimeout(() => intro.remove(), 3000);
+    setTimeout(() => lanzarEstrella(), 1800);
+  });
+
+  // CURSOR PLATEADO
+  const cursor = document.getElementById("cursor");
+  document.addEventListener("mousemove", e => {
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top = e.clientY + "px";
+  });
+
+  // 3D + LUZ
+  document.querySelectorAll(".scene").forEach(scene => {
+    const card = scene.querySelector(".card");
+
+    scene.addEventListener("mousemove", e => {
+      const rect = scene.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const midX = rect.width / 2;
+      const midY = rect.height / 2;
+
+      const rotX = -((y - midY) / midY) * 8;
+      const rotY =  ((x - midX) / midX) * 12;
+
+      card.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg) translateZ(25px)`;
+      card.style.setProperty('--gx', x + "px");
+      card.style.setProperty('--gy', y + "px");
+    });
+
+    scene.addEventListener("mouseleave", () => {
+      card.style.transform = "rotateX(0deg) rotateY(0deg)";
+      card.style.setProperty('--gx', '50%');
+      card.style.setProperty('--gy', '0%');
+    });
+  });
+
+  // ⭐ ESTRELLA FUGAZ
+  function lanzarEstrella() {
+    const estrella = document.createElement("div");
+    estrella.classList.add("estrella-fugaz");
+    document.body.appendChild(estrella);
+    setTimeout(() => estrella.remove(), 2000);
+  }
+
+  // 🌌 PARTICULAS PLATEADAS
+  setInterval(() => {
+    const p = document.createElement("div");
+    p.classList.add("particula");
+
+    p.style.left = Math.random() * window.innerWidth + "px";
+    p.style.top = (window.innerHeight + 50) + "px";
+    p.style.animationDuration = (4 + Math.random() * 3) + "s";
+
+    document.body.appendChild(p);
+    setTimeout(() => p.remove(), 7000);
+  }, 400);
+</script>
+
+</body>
+</html>
