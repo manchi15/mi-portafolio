@@ -1,0 +1,110 @@
+/* ✅ FONDO NEGRO CON ESTRELLAS SUAVES */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: black;
+    color: white;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent url("https://www.transparenttextures.com/patterns/stardust.png") repeat;
+    opacity: 0.22;
+    z-index: -1;
+}
+
+/* ✅ HEADER */
+header {
+    text-align: center;
+    padding: 60px 20px;
+    background: radial-gradient(circle, rgba(255,255,255,0.25) 0%, rgba(0,0,0,0) 70%);
+}
+
+header h1 {
+    font-size: 3rem;
+    text-shadow: 0 0 25px white;
+}
+
+header p {
+    color: #bbb;
+    font-size: 1.1rem;
+}
+
+/* ✅ TARJETA EFECTO METAL LÍQUIDO */
+.tarjeta {
+    position: relative;
+    margin: 30px auto;
+    padding: 25px;
+    width: 85%;
+    border-radius: 15px;
+
+    background: linear-gradient(135deg,
+        rgba(255,255,255,0.25),
+        rgba(180,180,180,0.08),
+        rgba(255,255,255,0.25)
+    );
+
+    background-size: 400% 400%;
+    animation: metalMovimiento 6s ease infinite;
+
+    border: 1px solid rgba(255,255,255,0.4);
+    box-shadow: 0 0 30px rgba(255,255,255,0.3);
+
+    backdrop-filter: blur(8px);
+    transition: 0.3s ease;
+}
+
+/* ✅ ANIMACIÓN METAL LÍQUIDO */
+@keyframes metalMovimiento {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ✅ HOVER – MÁS RESPLANDOR */
+.tarjeta:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 45px rgba(255,255,255,0.7);
+    border-color: white;
+}
+
+/* ✅ TÍTULOS PLATA */
+h2 {
+    color: white;
+    text-shadow: 0 0 20px rgba(255,255,255,0.9);
+}
+
+/* ✅ LISTAS */
+ul {
+    padding-left: 20px;
+    line-height: 1.7;
+}
+
+/* ✅ BOTONES METALIZADOS */
+.btn-red {
+    display: inline-block;
+    background: linear-gradient(135deg,
+        #eeeeee, #d9d9d9, #ffffff
+    );
+    background-size: 300% 300%;
+    animation: metalMovimiento 6s ease infinite;
+
+    padding: 12px 25px;
+    border-radius: 10px;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 0 20px white;
+    transition: 0.3s ease;
+}
+
+.btn-red:hover {
+    transform: scale(1.12);
+    box-shadow: 0 0 40px white;
+}
